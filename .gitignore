@@ -2,12 +2,19 @@
 app/bootstrap*
 
 # Symfony directories
-vendor/*
-*/logs/*
-*/cache/*
-web/uploads/*
-web/bundles/*
+web/bundles/
+web/uploads/
+app/bootstrap.php.cache
+app/cache/*
+app/logs/*
+build/
+vendor
+bin
+composer.phar
 
 # Configuration files
-app/config/parameters.ini
-app/config/parameters.yml
+app/config/parameters.*
+
+# Mac
+.DS_Store
+*~
