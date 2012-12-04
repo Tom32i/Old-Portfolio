@@ -1,0 +1,112 @@
+{% extends "Tom32iPortfolioBundle::layout.html.twig" %}
+
+{% block content %}
+<h1>JE CODE</h1>
+
+<div class="row">
+{% for language in languages %}
+	<div class="language span3">
+
+		<h2 class="title in-color {{ language.color }} {{ language.two_lines ? 'two-lines' : '' }}">
+			{% autoescape false %}{{ language.title }}{% endautoescape %}
+		</h2>
+
+		<p class="content">
+			{% autoescape false %}{{ language.content }}{% endautoescape %}
+		</p>
+	</div>
+{% endfor %}
+</div>
+
+<div class="hr">
+    <i class="icon-teapot"></i>
+</div>
+
+<h1>3 ANS DE PASSION</h1>
+
+{% for key, project in projects %}
+
+	{% if key % 3 == 0 %}
+	<div class="row">
+	{% endif %}
+
+		<div class="project span4">
+
+			<h2 class="title in-color">
+				{{ project.title }}
+			</h2>
+
+			{% if project.picture %}
+			<img src="" alt="{{ project.title }}" title="{{ project.title }}"/>
+			{% endif %}
+
+			<p class="content">
+				{% autoescape false %}{{ project.content }}{% endautoescape %}
+			</p>
+		</div>
+
+	{% if key % 3 == 2 %}
+	</div>
+	{% endif %}
+
+{% endfor %}
+
+<div class="hr">
+    <i class="icon-moustache"></i>
+</div>
+
+<h1>MÉTHODES DE TRAVAIL</h1>
+
+{% for key, method in methods %}
+
+	{% if key % 3 == 0 %}
+	<div class="row">
+	{% endif %}
+
+		<div class="method span4">
+
+			<h2 class="title">
+				{{ method.title }}
+			</h2>
+
+			<p class="content">
+				{% autoescape false %}{{ method.content }}{% endautoescape %}
+			</p>
+		</div>
+
+	{% if key % 3 == 2 %}
+	</div>
+	{% endif %}
+
+{% endfor %}
+
+<div class="hr">
+    <i class="icon-moustache"></i>
+</div>
+
+<h1>MES MEILLEURS AMIS</h1>
+
+{% for key, tool in tools %}
+
+	{% if key % 4 == 0 %}
+	<div class="row">
+	{% endif %}
+
+		<div class="tool span3">
+
+			<h2 class="title">
+				<img src="{{ asset(tool.logo)  }}" title="{{ tool.title }}" title="{{ tool.title }}" />
+			</h2>
+		</div>
+
+	{% if key % 4 == 3 %}
+	</div>
+	{% endif %}
+
+{% endfor %}
+
+<h3>Et pourquoi ça ?</h3>
+<p>Lorsque je choisis de travailler avec un outils, c’est après avoir réfléchi, comparé, testé et approuvé.<br/>
+Posez-moi donc la question, je vous expliquerai ces choix dans le details avec plaisir ;)</p>
+
+{% endblock content %}

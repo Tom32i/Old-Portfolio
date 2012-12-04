@@ -21,9 +21,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-    #globals:
-    #   analytics_account: %analytics_account%
-    #   analytics_domain: %analytics_domain%
+    globals:
+       analytics_account: %analytics_account%
+       analytics_domain: %analytics_domain%
     #form:    
     #    resources:
     #        - 'KeeptoolsSiteBundle:Form:fields.html.twig'
@@ -32,7 +32,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:        ["Tom32iPortfolioBundle"]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

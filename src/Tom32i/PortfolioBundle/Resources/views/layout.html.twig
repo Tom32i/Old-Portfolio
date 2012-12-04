@@ -1,0 +1,43 @@
+{% extends "Tom32iPortfolioBundle::base.html.twig" %}
+
+{% block head_title %}
+    Thomas Jarrand {% block head_sub_title %} | Concepteur Dévelopeur Web{% endblock %}
+{% endblock %}
+
+{% block head_meta_description %}
+    Thomas Jarrand : Conçois et développe des applications pour le web.
+{% endblock %}
+
+{% block head_meta_keywords %}
+    thomas jarrand developer web php back front end
+{% endblock %}
+
+{% block body_container%}
+    <header id="page-header">
+        <p id="top-title">THOMAS <strong>JARRAND</strong></p>
+        <p id="sub-title">CONCEPTEUR DÉVELOPPEUR WEB</p>
+
+    </header>
+
+    <div class="container" role="main">
+
+        <div class="hr">
+            <i class="icon-anchor"></i>
+        </div>
+        
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <footer id="page-footer">
+
+        <div class="container">
+
+            <div class="hr">
+                <i class="icon-invader"></i>
+            </div>
+
+        </div>
+
+    </footer>
+{% endblock body_container %}
