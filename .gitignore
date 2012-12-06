@@ -4,6 +4,8 @@ app/bootstrap*
 # Symfony directories
 web/bundles/
 web/uploads/
+web/css/
+web/js/
 app/bootstrap.php.cache
 app/cache/*
 app/logs/*

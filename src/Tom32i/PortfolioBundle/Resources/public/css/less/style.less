@@ -1,9 +1,27 @@
+// HR
+
+.hr
+{
+	text-align: center;
+	background-color: @grayLight;
+	height: 1px;
+	margin: 40px 0;
+
+	i{	
+		background-color: @grayLighter;
+		height: 40px;
+		width: 40px;
+		margin: -20px 0 0 0;
+	}
+}
+
 // HEADER
 
 #page-header
 {
 	text-align: center;
 	margin-top: 40px;
+	margin-bottom: 20px;
 }
 
 #top-title
@@ -26,6 +44,10 @@
 {
 	background-color: @grayDarker;
 	margin-top: 40px;
+
+	.hr > i{
+		background-color: @grayDarker;
+	}
 }
 
 // TITLES
@@ -35,8 +57,7 @@ h1{
 	text-align: center;
 	width: 100%;
 	font-weight: 200;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	margin: 20px 0;
 }
 
 .title.in-color
@@ -45,68 +66,55 @@ h1{
 	font-weight: 200;
 }
 
-// HR
-
-.hr
-{
-	text-align: center;
-	border-bottom: 1px solid @grayLight;
-	margin: 0px 0px 20px;
-	height: 20px;
-
-	i{	
-		color: @grayLight;
-		position: absolute;
-		height: 40px;
-		width: 40px;
-	}
-}
-
 // LANGUAGE
 
-.language
-{
-	.content
+.languages
+{	
+	margin-top: 40px;
+
+	.language
 	{
-		text-align: justify;
-		margin: 20px 0;
-	}
-
-	.title
-	{
-		font-size: 32px;
-		line-height: 32px;
-
-		width: 170px;
-		height: 32px;
-		max-width: 100%;
-		margin: 20px auto;
-
-		text-align: center;
-		padding: 69px 0px;
-
-		.border-radius(85px);
-
-		&.two-lines
+		.content
 		{
-			height: 64px;
-			padding: 53px 0px;
+			text-align: justify;
 		}
 
-		&.blueDark{
-			background-color: @blueDark;
-		}
+		.title
+		{
+			font-size: 32px;
+			line-height: 32px;
 
-		&.greenDark{
-			background-color: @greenDark;
-		}
+			width: 170px;
+			height: 32px;
+			max-width: 100%;
+			margin: 0 auto 20px;
 
-		&.purple{
-			background-color: @purple;
-		}
+			text-align: center;
+			padding: 69px 0px;
 
-		&.red{
-			background-color: @red;
+			.border-radius(85px);
+
+			&.two-lines
+			{
+				height: 64px;
+				padding: 53px 0px;
+			}
+
+			&.blueDark{
+				background-color: @blueDark;
+			}
+
+			&.greenDark{
+				background-color: @greenDark;
+			}
+
+			&.purple{
+				background-color: @purple;
+			}
+
+			&.red{
+				background-color: @red;
+			}
 		}
 	}
 }

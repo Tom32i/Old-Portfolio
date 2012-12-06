@@ -3,7 +3,7 @@
 {% block content %}
 <h1>JE CODE</h1>
 
-<div class="row">
+<div class="row languages">
 {% for language in languages %}
 	<div class="language span3">
 
@@ -24,13 +24,16 @@
 
 <h1>3 ANS DE PASSION</h1>
 
+{% set colums = 2 %}
+{% set max = projects|length - 1 %}
+
 {% for key, project in projects %}
 
-	{% if key % 3 == 0 %}
-	<div class="row">
+	{% if key % colums == 0 %}
+	<div class="row projects">
 	{% endif %}
 
-		<div class="project span4">
+		<div class="project span{{ 12 / colums }}">
 
 			<h2 class="title in-color">
 				{{ project.title }}
@@ -45,7 +48,7 @@
 			</p>
 		</div>
 
-	{% if key % 3 == 2 %}
+	{% if key == max or key % colums == (colums - 1) %}
 	</div>
 	{% endif %}
 
@@ -60,7 +63,7 @@
 {% for key, method in methods %}
 
 	{% if key % 3 == 0 %}
-	<div class="row">
+	<div class="row methods">
 	{% endif %}
 
 		<div class="method span4">
@@ -81,7 +84,7 @@
 {% endfor %}
 
 <div class="hr">
-    <i class="icon-moustache"></i>
+    <i class="icon-moto"></i>
 </div>
 
 <h1>MES MEILLEURS AMIS</h1>
@@ -89,7 +92,7 @@
 {% for key, tool in tools %}
 
 	{% if key % 4 == 0 %}
-	<div class="row">
+	<div class="row tools">
 	{% endif %}
 
 		<div class="tool span3">

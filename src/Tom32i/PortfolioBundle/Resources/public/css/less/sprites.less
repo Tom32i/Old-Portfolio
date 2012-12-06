@@ -1,0 +1,57 @@
+//
+// Sprites
+// --------------------------------------------------
+
+
+// ICONS
+// -----
+
+// All icons receive the styles of the <i> tag with a base class
+// of .i and are then given a unique class to add width, height,
+// and background-position. Your resulting HTML will look like
+// <i class="icon-inbox"></i>.
+
+// For the white version of the icons, just add the .icon-white class:
+// <i class="icon-inbox icon-white"></i>
+
+[class^="icon-"],
+[class*=" icon-"] {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  .ie7-restore-right-whitespace();
+  line-height: 40px;
+  vertical-align: text-top;
+  background-image: url("@{iconSpritePath}");
+  background-position: 40px 40px;
+  background-repeat: no-repeat;
+  margin-top: 1px;
+}
+
+/* White icons with optional class, or on hover/active states of certain elements */
+.icon-white,
+.nav-pills > .active > a > [class^="icon-"],
+.nav-pills > .active > a > [class*=" icon-"],
+.nav-list > .active > a > [class^="icon-"],
+.nav-list > .active > a > [class*=" icon-"],
+.navbar-inverse .nav > .active > a > [class^="icon-"],
+.navbar-inverse .nav > .active > a > [class*=" icon-"],
+.dropdown-menu > li > a:hover > [class^="icon-"],
+.dropdown-menu > li > a:hover > [class*=" icon-"],
+.dropdown-menu > .active > a > [class^="icon-"],
+.dropdown-menu > .active > a > [class*=" icon-"],
+.dropdown-submenu:hover > a > [class^="icon-"],
+.dropdown-submenu:hover > a > [class*=" icon-"] {
+  background-image: url("@{iconWhiteSpritePath}");
+}
+
+.icon-anchor             { background-position: 0px  0px; }
+.icon-teapot             { background-position: -40px  0px; }
+.icon-moustache          { background-position: -80px  0px; }
+.icon-invader            { background-position: -120px  0px; }
+.icon-spirit             { background-position: -160px  0px; }
+.icon-twitter            { background-position: 0px  -40px; }
+.icon-mail               { background-position: -40px  -40px; }
+.icon-iphone             { background-position: -80px  -40px; }
+.icon-phone              { background-position: -120px  -40px; }
+.icon-moto               { background-position: -160px  -40px; }
