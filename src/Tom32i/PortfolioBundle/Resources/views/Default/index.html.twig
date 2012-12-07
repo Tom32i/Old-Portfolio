@@ -89,13 +89,19 @@
 
 <h1>MES MEILLEURS AMIS</h1>
 
+{% set colums = 2 %}
+{% set max = tools|length - 1 %}
+
+<div class="row tools">
+
+<div class="span8">
 {% for key, tool in tools %}
 
-	{% if key % 4 == 0 %}
-	<div class="row tools">
+	{% if key % colums == 0 %}
+	<div class="row-fluid">
 	{% endif %}
 
-		<div class="tool span3">
+		<div class="tool span{{ 12 / colums }}">
 			<a href="{{ tool.url }}" target="_blank" title="{{ tool.title }}">
 				<h2 class="title">
 					<img src="{{ asset(tool.logo)  }}" title="{{ tool.title }}" alt="{{ tool.title }}" />
@@ -103,14 +109,19 @@
 			</a>
 		</div>
 
-	{% if key % 4 == 3 %}
+	{% if key % colums == colums - 1 %}
 	</div>
 	{% endif %}
 
 {% endfor %}
+</div>
 
-<h3>Et pourquoi ça ?</h3>
+<div class="span4">
+<h3 class="sub-title">Et pourquoi ça ?</h3>
 <p>Lorsque je choisis de travailler avec un outils, c’est après avoir réfléchi, comparé, testé et approuvé.<br/>
 Posez-moi donc la question, je vous expliquerai ces choix dans le details avec plaisir ;)</p>
+</div>
+
+</div>
 
 {% endblock content %}
