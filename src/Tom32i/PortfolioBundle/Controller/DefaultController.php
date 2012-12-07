@@ -90,22 +90,26 @@ class DefaultController extends Controller
     	$tools = array( 
 
     		array(
-    			'title' => 'Git', 
+    			'title' => 'Git',
+                'url' => 'http://git-scm.com/',
     			'logo' => 'bundles/tom32iportfolio/images/git.svg', 
     		),
 
     		array(
     			'title' => 'Symfony 2', 
+                'url' => 'http://symfony.com/',
     			'logo' => 'bundles/tom32iportfolio/images/symfony.svg', 
     		),
 
     		array(
     			'title' => 'Twitter Bootstrap', 
+                'url' => 'http://twitter.github.com/bootstrap/',
     			'logo' => 'bundles/tom32iportfolio/images/bootstrap.svg', 
     		),
 
     		array(
-    			'title' => 'Drupal 7',
+    			'title' => 'Drupal',
+                'url' => 'http://drupal.org/',
     			'logo' => 'bundles/tom32iportfolio/images/drupal.svg', 
     		),
     	);

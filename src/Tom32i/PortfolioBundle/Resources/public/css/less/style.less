@@ -5,7 +5,7 @@
 	text-align: center;
 	background-color: @grayLight;
 	height: 1px;
-	margin: 40px 0;
+	margin: 60px 0;
 
 	i{	
 		background-color: @grayLighter;
@@ -45,8 +45,44 @@
 	background-color: @grayDarker;
 	margin-top: 40px;
 
+	p, a{
+		color: @grayLight;
+	}
+
 	.hr > i{
 		background-color: @grayDarker;
+	}
+
+	.link
+	{
+		margin-bottom: 20px;
+
+		p, a
+		{
+			line-height: 40px;
+			display: inline;
+			vertical-align: middle;
+		}
+
+		i
+		{
+			margin: 0 20px 0 0;
+			vertical-align: top;
+			.border-radius(20px);
+
+			&.icon-twitter{
+				background-color: @blue;
+			}
+			&.icon-mail{
+				background-color: @orange;
+			}
+			&.icon-iphone{
+				background-color: @green;
+			}
+			&.icon-github{
+				background-color: @purple;
+			}
+		}
 	}
 }
 
@@ -57,7 +93,7 @@ h1{
 	text-align: center;
 	width: 100%;
 	font-weight: 200;
-	margin: 20px 0;
+	margin: 40px 0;
 }
 
 .title.in-color

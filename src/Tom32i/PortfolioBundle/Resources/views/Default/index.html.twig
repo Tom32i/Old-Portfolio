@@ -96,10 +96,11 @@
 	{% endif %}
 
 		<div class="tool span3">
-
-			<h2 class="title">
-				<img src="{{ asset(tool.logo)  }}" title="{{ tool.title }}" title="{{ tool.title }}" />
-			</h2>
+			<a href="{{ tool.url }}" target="_blank" title="{{ tool.title }}">
+				<h2 class="title">
+					<img src="{{ asset(tool.logo)  }}" title="{{ tool.title }}" alt="{{ tool.title }}" />
+				</h2>
+			</a>
 		</div>
 
 	{% if key % 4 == 3 %}
