@@ -1,0 +1,21 @@
+{% extends "Tom32iPortfolioBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+{% stylesheets '@Tom32iPortfolioBundle/Resources/public/css/back.css'
+    output='css/back.css' 
+    filter='?yui_css' 
+%}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock stylesheets %}
+
+{% block body_js %}
+{% javascripts 
+    '@Tom32iPortfolioBundle/Resources/public/js/plugins.js' 
+    '@Tom32iPortfolioBundle/Resources/public/js/vendor/bootstrap.min.js' 
+    output='js/back.js' 
+    filter='?yui_js'
+%}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock body_js %}

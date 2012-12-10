@@ -14,6 +14,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        $em = $this->getDoctrine()->getManager();
+
     	$languages = array(
 
     		array(
@@ -46,44 +48,28 @@ class DefaultController extends Controller
 
     	);
 
-		$projects = array(
-
-    		array(
-    			'title' => "UNISON SAFETY",
-    			'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor arcu, dictum et adipiscing ac, lacinia et libero. Sed interdum quam non mauris tempor sit amet scelerisque erat tincidunt.",
-    			'picture' => "",
-			),
-
-    		array(
-    			'title' => "INHOUSE RESOURCES",
-    			'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor arcu, dictum et adipiscing ac, lacinia et libero. Sed interdum quam non mauris tempor sit amet scelerisque erat tincidunt.",
-    			'picture' => "",
-			),
-
-    		array(
-    			'title' => "ARCCON",
-    			'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor arcu, dictum et adipiscing ac, lacinia et libero. Sed interdum quam non mauris tempor sit amet scelerisque erat tincidunt.",
-    			'picture' => "",
-			),
-
-    	);
+		$projects = $em->getRepository('Tom32iPortfolioBundle:Project')->findAll();
 
 		$methods = array(
 
     		array(
-    			'title' => "Reflechir avant d’agir.",
-    			'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor arcu, dictum et adipiscing ac, lacinia et libero. Sed interdum quam non mauris tempor sit amet scelerisque erat tincidunt.",
-    		),
-
-    		array(
     			'title' => "Compter sur les autres.",
-    			'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor arcu, dictum et adipiscing ac, lacinia et libero. Sed interdum quam non mauris tempor sit amet scelerisque erat tincidunt.",
+    			'content' => "La qualité d'un projet est le resultat d'une réflexion collective, d'un travail en équipe réunissant des talents divers.
+                Je ne m'isole pas pour développer: je solicite au contraire beaucoup mon équipe et confronte mes idées à leur points de vue. Et ça marche!",
     		),
 
     		array(
     			'title' => "Chercher à comprendre.",
-    			'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor arcu, dictum et adipiscing ac, lacinia et libero. Sed interdum quam non mauris tempor sit amet scelerisque erat tincidunt.",
+    			'content' => "En tant que developpeur, on peut faire mieux que simplement coder la fonctionalité demandée: 
+                En connaissant le contexte et les véritables besoins des projets sur lesquels je travail, j'oriente mes client vers la solution la plus pertinante.",
 			),
+
+            array(
+                'title' => "Reflechir avant d’agir.",
+                'content' => "J'accorde de l'importance à la phase de conception d'un projet. 
+                Mon travail de dévelopement commence toujours à l'écris, avec un crayon à papier. 
+                C'est ainsi que je corrige certains problèmes avant même de les avoir codés.",
+            ),
 
     	);
 
@@ -119,6 +105,7 @@ class DefaultController extends Controller
         	'projects' => $projects,
         	'methods' => $methods,
         	'tools' => $tools,
+            'now' => new \DateTime(),
         );
     }
 }

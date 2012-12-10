@@ -3,7 +3,7 @@
 {% block content %}
 <h1>JE CODE</h1>
 
-<div class="row languages">
+<div class="languages row">
 {% for language in languages %}
 	<div class="language span3">
 
@@ -39,13 +39,25 @@
 				{{ project.title }}
 			</h2>
 
-			{% if project.picture %}
-			<img src="" alt="{{ project.title }}" title="{{ project.title }}"/>
-			{% endif %}
+			{% set img = project.display('full') %}
+            <img src="{{ asset(img.src) }}" class="picture" width="{{ img.width }}" height="{{ img.height }}" alt="{{ project.title }}" />
 
 			<p class="content">
-				{% autoescape false %}{{ project.content }}{% endautoescape %}
+				{% autoescape false %}{{ project.description }}{% endautoescape %}
 			</p>
+
+            <div class="metas">
+				<p class="meta date">
+					{{ project.released >= now ? "Prochainement" : project.released|date('m/Y') }}
+				</p>
+
+				{% if project.url %}
+					<a href="{{ project.url }}" target="_blank" class="link meta">
+						{{ project.url|replace({'http://': "", 'https://': ""}) }}
+					</a>
+				{% endif %}
+			</div>
+
 		</div>
 
 	{% if key == max or key % colums == (colums - 1) %}
@@ -104,7 +116,7 @@
 		<div class="tool span{{ 12 / colums }}">
 			<a href="{{ tool.url }}" target="_blank" title="{{ tool.title }}">
 				<h2 class="title">
-					<img src="{{ asset(tool.logo)  }}" title="{{ tool.title }}" alt="{{ tool.title }}" />
+					<img src="{{ asset(tool.logo)  }}" title="{{ tool.title }}" alt="{{ tool.title }}" width="200" height="60" />
 				</h2>
 			</a>
 		</div>
@@ -118,8 +130,8 @@
 
 <div class="span4">
 <h3 class="sub-title">Et pourquoi ça ?</h3>
-<p>Lorsque je choisis de travailler avec un outils, c’est après avoir réfléchi, comparé, testé et approuvé.<br/>
-Posez-moi donc la question, je vous expliquerai ces choix dans le details avec plaisir ;)</p>
+<p>Lorsque je choisis de travailler avec un outils, c’est après l'avoir testé, comparé et approuvé.</p>
+<p>N'hesitez pas à venir en discuter avec moi. Je vous expliquerai ces choix dans le detail ;)</p>
 </div>
 
 </div>
