@@ -27,10 +27,11 @@
 {% set colums = 2 %}
 {% set max = projects|length - 1 %}
 
+<div class="projects">
 {% for key, project in projects %}
 
 	{% if key % colums == 0 %}
-	<div class="row projects">
+	<div class="row">
 	{% endif %}
 
 		<div class="project span{{ 12 / colums }}">
@@ -57,7 +58,7 @@
 					</a>
 				{% endif %}
 			</div>
-
+			<div class="clearfix"></div>
 		</div>
 
 	{% if key == max or key % colums == (colums - 1) %}
@@ -65,6 +66,7 @@
 	{% endif %}
 
 {% endfor %}
+</div>
 
 <div class="hr">
     <i class="icon-moustache"></i>

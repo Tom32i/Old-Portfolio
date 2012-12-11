@@ -1,7 +1,7 @@
-{% extends "Tom32iPortfolioBundle::layout.html.twig" %}
+{% extends "Tom32iPortfolioBundle::layout-back.html.twig" %}
 
 {% block content %}
-    <div>
+    {#<div>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
             <a href="{{ path('fos_user_security_logout') }}">
@@ -10,7 +10,7 @@
         {% else %}
             <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
         {% endif %}
-    </div>
+    </div>#}
 
     {% for key, message in app.session.getFlashes() %}
     <div class="{{ key }}">
