@@ -11,6 +11,7 @@ app/cache/*
 app/logs/*
 build/
 /vendor
+/composer.lock
 bin
 composer.phar
 

@@ -180,7 +180,8 @@ AddType text/vtt                            vtt
                                   text/html \
                                   text/plain \
                                   text/x-component \
-                                  text/xml
+                                  text/xml \
+                                  image/svg+xml
   </IfModule>
 
 </IfModule>
