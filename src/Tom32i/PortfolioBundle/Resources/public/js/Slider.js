@@ -15,8 +15,9 @@ function Slider(id, index)
 	this.newX = 0;
 	this.sliderWidth = 0;
 	this.pas = 0;
+	this.toRight;
 
-
+	this.pasFastLimit = 1;
 	this.minX = -100 * (this.total - 1);
 	this.maxX = 0;
     this.mode3d;
@@ -57,13 +58,15 @@ function Slider(id, index)
 	        		var diffToMax = Math.abs(max - this.currentX);
 	        		var diffToMin = Math.abs(min - this.currentX);
 
-	        		if(diffToMax < diffToMin)
+	        		console.log("%i >= %i", this.pas, this.pasFastLimit);
+
+	        		if(Math.abs(this.pas) >= Math.abs(this.pasFastLimit))
 	        		{
-				        this.newX = max;
+	        			this.newX = this.toRight ? min : max;
 	        		}
 	        		else
 	        		{
-				        this.newX = min;
+	        			this.newX = diffToMax > diffToMin ? min : max;
 	        		}
 	        	}
 	        }
@@ -101,6 +104,8 @@ function Slider(id, index)
     	} 
 
     	e.preventDefault();
+
+    	this.toRight = diff < 0;
 
         var newX = this.currentX + diff;
 
@@ -157,7 +162,7 @@ function Slider(id, index)
 		var sign = (this.currentX > this.newX) ? -1 : 1;
 		var diff = Math.abs(this.currentX - this.newX);
 
-		if(this.pas <= 2)
+		if(this.pas <= this.pasFastLimit)
 		{
 			this.pas = diff / (10);
 		}
