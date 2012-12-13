@@ -1,21 +1,25 @@
 {% extends "Tom32iPortfolioBundle::layout.html.twig" %}
 
+{% block body_attributes %}onresize="resizeHandler();" onload="initPage();" class="loading"{% endblock body_attributes %}
+
 {% block content %}
 <h1>JE CODE</h1>
 
-<div class="languages row">
-{% for language in languages %}
-	<div class="language span3">
+<div id="languages" class="languages row full-width scrollable">
+	<div id="slider-languages" class="slider">
+	{% for language in languages %}
+		<div class="language span3">
 
-		<h2 class="title in-color {{ language.color }} {{ language.two_lines ? 'two-lines' : '' }}">
-			{% autoescape false %}{{ language.title }}{% endautoescape %}
-		</h2>
+			<h2 class="title in-color {{ language.color }} {{ language.two_lines ? 'two-lines' : '' }}">
+				{% autoescape false %}{{ language.title }}{% endautoescape %}
+			</h2>
 
-		<p class="content">
-			{% autoescape false %}{{ language.content }}{% endautoescape %}
-		</p>
+			<p class="content">
+				{% autoescape false %}{{ language.content }}{% endautoescape %}
+			</p>
+		</div>
+	{% endfor %}
 	</div>
-{% endfor %}
 </div>
 
 <div class="hr">
@@ -27,13 +31,9 @@
 {% set colums = 2 %}
 {% set max = projects|length - 1 %}
 
-<div class="projects">
-{% for key, project in projects %}
-
-	{% if key % colums == 0 %}
-	<div class="row">
-	{% endif %}
-
+<div id="projects" class="projects row full-width scrollable">
+	<div id="slider-projects" class="slider">
+	{% for key, project in projects %}
 		<div class="project span{{ 12 / colums }}">
 
 			<h2 class="title in-color">
@@ -43,13 +43,13 @@
 			{% set img = project.display('full') %}
             <img src="{{ asset(img.src) }}" class="picture" width="{{ img.width }}" height="{{ img.height }}" alt="{{ project.title }}" />
 
-			<p class="content">
-				{% autoescape false %}{{ project.description }}{% endautoescape %}
-			</p>
-
             <div class="metas">
+				<p class="content">
+					{% autoescape false %}{{ project.description }}{% endautoescape %}
+				</p>
+
 				<p class="meta date">
-					{{ project.released >= now ? "Prochainement" : project.released|date('m/Y') }}
+					{{ project.released >= now ? "Prochainement" : project.released|date('Y') }}
 				</p>
 
 				{% if project.url %}
@@ -57,15 +57,12 @@
 						{{ project.url|replace({'http://': "", 'https://': ""}) }}
 					</a>
 				{% endif %}
+
+				<div class="clearfix"></div>
 			</div>
-			<div class="clearfix"></div>
 		</div>
-
-	{% if key == max or key % colums == (colums - 1) %}
+	{% endfor %}
 	</div>
-	{% endif %}
-
-{% endfor %}
 </div>
 
 <div class="hr">

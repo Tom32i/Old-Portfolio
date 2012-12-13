@@ -1,4 +1,4 @@
-// HR
+// Default
 
 .hr
 {
@@ -15,14 +15,17 @@
 	}
 }
 
-// PICTURES
-
 img
 {
 	max-width: 100%;
 	height: auto;
 	margin: 0px auto;
 	text-align: center;
+}
+
+body > .container
+{
+	min-width: 170px;
 }
 
 // HEADER
@@ -188,15 +191,26 @@ h1{
 		margin-bottom: 20px;
 	}
 
-	.date
+	.metas
 	{
-		float: right;
-		color: gray;
-	}
+		display: block;
+		min-height: 120px;
 
-	.content
-	{
-		text-align: justify;
+		.date
+		{
+			color: gray;
+		}
+
+		.link, .date
+		{
+			float: right;
+			margin-left: 20px;
+		}
+
+		.content
+		{
+			text-align: justify;
+		}
 	}
 }
 

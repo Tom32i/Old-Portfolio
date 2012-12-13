@@ -1,6 +1,8 @@
 @media (min-width: 1200px) 
 {
-
+	.project .metas{
+		min-height: 100px;
+	}
 }
 
 @media (min-width: 980px) and (max-width: 1199px)
@@ -18,8 +20,11 @@
 			clear: both;
 		}
 	}
-}
 
+	.project .metas{
+		min-height: 140px;
+	}
+}
 
 @media (max-width: 767px) 
 {
@@ -57,12 +62,9 @@
 
 	#page-footer
 	{
-		margin-left: -@gridGutterWidth768;
-		margin-right: -@gridGutterWidth768;
+		text-align: center;
 		padding-left: @gridGutterWidth768;
 		padding-right: @gridGutterWidth768;
-
-		text-align: center;
 
 		.link
 		{
@@ -78,4 +80,43 @@
 	h1 { font-size: @baseFontSize * 2.25; }
 	h2 { font-size: @baseFontSize * 1.75; }
 	h3 { font-size: @baseFontSize * 1.5; }
+
+	.full-width
+	{
+		margin-left: -@gridGutterWidth768;
+		margin-right: -@gridGutterWidth768;
+
+		&.scrollable
+		{
+			overflow: hidden;
+
+			.slider > div
+			{
+				margin: 0;
+				float: left;
+			}
+		}
+	}
+
+	.languages .slider
+	{
+		width: 400%;
+
+		.language
+		{
+			width: 25%;
+		}
+	}
+
+	.projects .slider
+	{
+		width: 600%;
+
+		.project
+		{
+			width: percentage(0.16666666);
+			padding-left: @gridGutterWidth768;
+			padding-right: @gridGutterWidth768;
+		}
+	}
 }
