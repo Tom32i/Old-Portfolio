@@ -7,7 +7,10 @@ function Slider(id, index)
 	this.slider = document.getElementById('slider-' + id);
 	this.total = this.slider.children.length;
 	this.touched = false;
+	this.moved = false;
+	this.horizontal = true;
 	this.dragX = 0;
+	this.dragY = 0;
 	this.currentX = 0;
 	this.newX = 0;
 	this.sliderWidth = 0;
@@ -20,57 +23,88 @@ function Slider(id, index)
 
 	addEvent(this.domElement, 'touchstart', function(e){ slider.touchStart(e); });
     addEvent(this.domElement, 'touchend', function(e){ slider.touchEnd(e); });
-    addEvent(this.domElement, 'touchmove', function(e){ e.preventDefault(); slider.touchMove(e); });
+    addEvent(this.domElement, 'touchmove', function(e){ slider.touchMove(e); });
 
-     this.touchStart = function(e)
+    this.touchStart = function(e)
     {
+    	console.log("touch length: %i", e.targetTouches.length);
+
     	if(e.targetTouches.length == 1)
     	{
 	        this.touched = true;
+			this.horizontal = true;
 	        this.dragX = parseInt( e.targetTouches[0].screenX ); 
+	        this.dragY = parseInt( e.targetTouches[0].screenY ); 
     	}
     }
     
     this.touchEnd = function(e)
     {
         this.touched = false;
+        this.moved = false;
 
-        for (var i = this.total - 1; i >= 0; i--) 
+        console.log("Horizontal: %s", this.horizontal);
+
+        if(this.horizontal)
         {
-        	var max = i * -100;
-        	var min = (i+1) * -100;
+	        for (var i = this.total - 1; i >= 0; i--) 
+	        {
+	        	var max = i * -100;
+	        	var min = (i+1) * -100;
 
-        	if( this.currentX > min && this.currentX < max )
-        	{
-        		var diffToMax = Math.abs(max - this.currentX);
-        		var diffToMin = Math.abs(min - this.currentX);
+	        	if( this.currentX > min && this.currentX < max )
+	        	{
+	        		var diffToMax = Math.abs(max - this.currentX);
+	        		var diffToMin = Math.abs(min - this.currentX);
 
-        		if(diffToMax < diffToMin)
-        		{
-			        this.newX = max;
-        		}
-        		else
-        		{
-			        this.newX = min;
-        		}
-        	}
-        }
+	        		if(diffToMax < diffToMin)
+	        		{
+				        this.newX = max;
+	        		}
+	        		else
+	        		{
+				        this.newX = min;
+	        		}
+	        	}
+	        }
 
-        console.log(this.currentX);
-        console.log(this.newX);
-
-        if(this.newX != this.currentX)
-        {
-        	setMotion(true, 'slider' + this.animIndex);
+	        if(this.newX != this.currentX)
+	        {
+	        	setMotion(true, 'slider' + this.animIndex);
+	        }
         }
     }
 
     this.touchMove = function(e)
     {
+    	if(this.horizontal == false)
+    	{
+    		return true;
+    	}
+
         var dragX = parseInt(e.targetTouches[0].screenX); 
         var diff = (parseInt(dragX - this.dragX) / windowWidth) * 100;
+
+    	if(this.moved == false)
+    	{
+	        var dragY = parseInt(e.targetTouches[0].screenY); 
+	        var diffY = (parseInt(dragY - this.dragY) / windowWidth) * 100;
+
+	        console.log("%s <> %s", diffY, diff);
+
+	        if(Math.abs(diffY) > Math.abs(diff))
+	        {
+	        	this.horizontal = false;
+
+	        	return this.touchEnd();
+	        }
+    	} 
+
+    	e.preventDefault();
+
         var newX = this.currentX + diff;
 
+        this.moved = true;
         this.pas = Math.abs(diff);
 
         if(newX < this.minX){ newX = this.minX; }
@@ -122,8 +156,6 @@ function Slider(id, index)
     {
 		var sign = (this.currentX > this.newX) ? -1 : 1;
 		var diff = Math.abs(this.currentX - this.newX);
-
-		console.log(this.pas);
 
 		if(this.pas <= 2)
 		{
