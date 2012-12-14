@@ -27,21 +27,22 @@ function Slider(id, index)
     };
 
 	this.total = this.slider.children.length;
-	this.touched = false;
-	this.moved = false;
-	this.horizontal = true;
-	this.dragX = 0;
-	this.dragY = 0;
-	this.currentX = 0;
-	this.newX = 0;
-	this.sliderWidth = 0;
-	this.pas = 0;
-	this.toRight;
-
-	this.pasFastLimit = 1;
-	this.minX = -100 * (this.total - 1);
-	this.maxX = 0;
+    this.sliderWidth = 0;
+    this.pasFastLimit = 1;
+    this.minX = -100 * (this.total - 1);
+    this.maxX = 0;
     this.mode3d;
+
+    this.pos;
+	this.touched;
+	this.moved;
+	this.horizontal;
+	this.dragX;
+	this.dragY;
+	this.currentX;
+	this.newX;
+    this.pas;
+	this.toRight;
 
 	addEvent(this.domElement, 'touchstart', function(e){ slider.touchStart(e); });
     addEvent(this.domElement, 'touchend', function(e){ slider.touchEnd(e); });
@@ -92,6 +93,8 @@ function Slider(id, index)
 	        		{
 	        			this.newX = diffToMax > diffToMin ? min : max;
 	        		}
+
+                    this.pos = Math.abs( Math.floor( this.newX / 100 ) );
 	        	}
 	        }
 
@@ -150,21 +153,6 @@ function Slider(id, index)
     this.render = function() 
     {
     	this.slider.style.marginLeft = this.currentX + "%";
-        /*var is3d = iPad ? this.mode3d : true;
-
-        if(prefix)
-        {
-            this.domElement.style[prefix+'Transform']= "translate" + (is3d ? '3d' : '') + "("+this.currentX+"px, "+this.currentY+"px" + (is3d ? ',0' : '') + ")";
-        }
-        else if(ie == false)
-        {
-            this.domElement.style.transform= "translate" + (is3d ? '3d' : '') + "("+this.currentX+"px, "+this.currentY+"px" + (is3d ? ',0' : '') + ")";
-        }
-        else
-        {
-            this.domElement.style.left= this.currentX + "px";
-            this.domElement.style.top= this.currentY + "px";
-        }*/
     }
 
     this.update = function()
@@ -214,7 +202,7 @@ function Slider(id, index)
 
     this.slide = function(e, next) 
     {
-        var newX = this.currentX + ( next ? -1 : 1) * 100;
+        var newX = ( this.pos * -100 ) + ( next ? -1 : 1) * 100;
 
         if(newX < this.minX){ newX = this.minX; }
         if(newX > this.maxX){ newX = this.maxX; }
@@ -224,7 +212,36 @@ function Slider(id, index)
 
         if(this.newX != this.currentX)
         {
+            this.pos = Math.abs( Math.floor( this.newX / 100 ) );
             setMotion(true, 'slider' + this.animIndex);
         }
     }
+
+    this.resizeHandler = function()
+    {
+        if(windowWidth >= 768)
+        {
+            this.init();
+        }
+    }
+
+    this.init = function()
+    {
+        addClass(this.prevButton, 'hide');
+        removeClass(this.nextButton, 'hide');
+        this.slider.style.marginLeft = 0;
+
+        this.touched = false;
+        this.moved = false;
+        this.horizontal = true;
+        this.dragX = 0;
+        this.dragY = 0;
+        this.currentX = 0;
+        this.newX = 0;
+        this.pas = 0;
+        this.toRight = false;
+        this.pos = 0;
+    }
+
+    this.init();
 }

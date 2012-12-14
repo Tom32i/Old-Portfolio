@@ -77,6 +77,11 @@ function loopSlider1()
 function resizeHandler()
 {
 	windowWidth = window.innerWidth;
+
+    for (var i = sliders.length - 1; i >= 0; i--) 
+    {
+        sliders[i].resizeHandler();
+    }
 }
 
 /* METHODS */
