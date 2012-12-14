@@ -81,6 +81,8 @@
 	h2 { font-size: @baseFontSize * 1.75; }
 	h3 { font-size: @baseFontSize * 1.5; }
 
+	// Sliders
+
 	.full-width
 	{
 		margin-left: -@gridGutterWidth768;
@@ -89,34 +91,103 @@
 		&.scrollable
 		{
 			overflow: hidden;
+			position: relative;
 
 			.slider > div
 			{
 				margin: 0;
 				float: left;
 			}
+
+			.control
+			{
+				display: block;
+				position: absolute;
+				width: 48px;
+				height: 50px;
+				padding: 0px;
+				font-size: 50px;
+				font-weight: 200;
+				line-height: 40px;
+				text-align: center;
+				vertical-align: top;
+				cursor: pointer;
+
+				.transition (opacity 500ms);
+
+				&.prev
+				{
+					left: @gridGutterWidth768;
+					padding-right: 2px;
+				}
+
+				&.next
+				{
+					right: @gridGutterWidth768;
+					padding-left: 2px;
+				}
+
+				&.hide
+				{
+					.opacity (0);
+				}
+			}
 		}
 	}
 
-	.languages .slider
+	.languages 
 	{
-		width: 400%;
+		.slider
+		{
+			width: 400%;
+		}
 
 		.language
 		{
 			width: 25%;
 		}
+
+		.control
+		{
+			top: 60px;
+			color: @grayLight;
+
+			&:hover
+			{
+				color: @grayDarker;
+			}
+		}
 	}
 
-	.projects .slider
+	.projects
 	{
-		width: 600%;
+		.slider
+		{
+			width: 600%;
+		}
 
 		.project
 		{
 			width: percentage(0.16666666);
 			padding-left: @gridGutterWidth768;
 			padding-right: @gridGutterWidth768;
+
+			.title
+			{
+				padding-left: 50px;
+				padding-right: 50px;
+			}
 		}
-	}
+
+		.control
+		{
+			top: 5px;
+			color: @grayLighter;
+
+			&:hover
+			{
+				color: @white;
+			}
+		}
+	} 
 }

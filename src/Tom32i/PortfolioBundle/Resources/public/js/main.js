@@ -26,8 +26,6 @@
 
 function initPage()
 {
-	console.log('initPage');
-
 	animFrame = { 
 		slider0: {index: 0, loop: loopSlider0, motion: false}, 
 		slider1: {index: 1, loop: loopSlider1, motion: false},

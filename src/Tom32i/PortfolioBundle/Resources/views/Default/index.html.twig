@@ -6,6 +6,9 @@
 <h1>JE CODE</h1>
 
 <div id="languages" class="languages row full-width scrollable">
+	<div class="control prev hide">‹</div>
+	<div class="control next">›</div>
+
 	<div id="slider-languages" class="slider">
 	{% for language in languages %}
 		<div class="language span3">
@@ -32,6 +35,9 @@
 {% set max = projects|length - 1 %}
 
 <div id="projects" class="projects row full-width scrollable">
+	<div class="control prev hide">‹</div>
+	<div class="control next">›</div>
+
 	<div id="slider-projects" class="slider">
 	{% for key, project in projects %}
 		<div class="project span{{ 12 / colums }}">

@@ -4,7 +4,28 @@ function Slider(id, index)
 
 	this.animIndex = index;
 	this.domElement = document.getElementById(id);
-	this.slider = document.getElementById('slider-' + id);
+
+    for (var i = this.domElement.children.length - 1; i >= 0; i--) 
+    {
+        var element = this.domElement.children[i];
+
+        if(hasClass(element, 'slider'))
+        {
+            this.slider = element;
+        }
+        else if(hasClass(element, 'control'))
+        {
+            if(hasClass(element, 'prev'))
+            {
+                this.prevButton = element;
+            }
+            else
+            {
+                this.nextButton = element;
+            }
+        }
+    };
+
 	this.total = this.slider.children.length;
 	this.touched = false;
 	this.moved = false;
@@ -26,9 +47,12 @@ function Slider(id, index)
     addEvent(this.domElement, 'touchend', function(e){ slider.touchEnd(e); });
     addEvent(this.domElement, 'touchmove', function(e){ slider.touchMove(e); });
 
+    addEvent(this.prevButton, 'click', function(e){ slider.slide(e, false); });
+    addEvent(this.nextButton, 'click', function(e){ slider.slide(e, true); });
+
     this.touchStart = function(e)
     {
-    	console.log("touch length: %i", e.targetTouches.length);
+    	//console.log("touch length: %i", e.targetTouches.length);
 
     	if(e.targetTouches.length == 1)
     	{
@@ -44,7 +68,7 @@ function Slider(id, index)
         this.touched = false;
         this.moved = false;
 
-        console.log("Horizontal: %s", this.horizontal);
+        //console.log("Horizontal: %s", this.horizontal);
 
         if(this.horizontal)
         {
@@ -58,7 +82,7 @@ function Slider(id, index)
 	        		var diffToMax = Math.abs(max - this.currentX);
 	        		var diffToMin = Math.abs(min - this.currentX);
 
-	        		console.log("%i >= %i", this.pas, this.pasFastLimit);
+	        		//console.log("%i >= %i", this.pas, this.pasFastLimit);
 
 	        		if(Math.abs(this.pas) >= Math.abs(this.pasFastLimit))
 	        		{
@@ -93,7 +117,7 @@ function Slider(id, index)
 	        var dragY = parseInt(e.targetTouches[0].screenY); 
 	        var diffY = (parseInt(dragY - this.dragY) / windowWidth) * 100;
 
-	        console.log("%s <> %s", diffY, diff);
+	        //console.log("%s <> %s", diffY, diff);
 
 	        if(Math.abs(diffY) > Math.abs(diff))
 	        {
@@ -154,6 +178,24 @@ function Slider(id, index)
         {
         	this.pas = 0;
             setMotion(false, 'slider' + this.animIndex);
+
+            if(this.currentX == this.minX)
+            {
+                addClass(this.nextButton, 'hide');
+            }
+            else
+            {
+                removeClass(this.nextButton, 'hide');
+            }
+
+            if(this.currentX == this.maxX)
+            {
+                addClass(this.prevButton, 'hide');
+            }
+            else
+            {
+                removeClass(this.prevButton, 'hide');
+            }
         }
     }
 
@@ -168,5 +210,20 @@ function Slider(id, index)
 		}
 
 		return (diff > this.pas) ? (sign * this.pas) : sign * diff;
+    }
+
+    this.slide = function(e, next) 
+    {
+        var newX = this.currentX + ( next ? -1 : 1) * 100;
+
+        if(newX < this.minX){ newX = this.minX; }
+        if(newX > this.maxX){ newX = this.maxX; }
+
+        this.newX = newX;
+
+        if(this.newX != this.currentX)
+        {
+            setMotion(true, 'slider' + this.animIndex);
+        }
     }
 }
