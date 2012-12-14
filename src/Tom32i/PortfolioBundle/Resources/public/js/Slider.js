@@ -204,7 +204,7 @@ function Slider(id, index)
 		var sign = (this.currentX > this.newX) ? -1 : 1;
 		var diff = Math.abs(this.currentX - this.newX);
 
-		if(this.pas <= this.pasFastLimit)
+		if(this.pas < this.pasFastLimit)
 		{
 			this.pas = diff / (10);
 		}
@@ -219,6 +219,7 @@ function Slider(id, index)
         if(newX < this.minX){ newX = this.minX; }
         if(newX > this.maxX){ newX = this.maxX; }
 
+        this.pas = this.pasFastLimit * 3;
         this.newX = newX;
 
         if(this.newX != this.currentX)
