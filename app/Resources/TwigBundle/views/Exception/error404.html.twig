@@ -1,0 +1,27 @@
+{% extends "Tom32iPortfolioBundle::base.html.twig" %}
+
+{% block head_title %}
+    Thomas Jarrand {% block head_sub_title %} | Concepteur Dévelopeur Web{% endblock %}
+{% endblock %}
+
+{% block body_container%}
+
+    <div class="container" id="main" role="main">
+
+        <header id="page-header">
+            <p id="top-title">THOMAS <strong>JARRAND</strong></p>
+            <p id="sub-title">CONCEPTEUR DÉVELOPPEUR WEB</p>
+
+        </header>
+
+        <div class="hr">
+            <i class="icon-invader"></i>
+        </div>
+        
+        {% block content %}
+            <h1>Vous êtes perdus ?</h1>
+            <p class="center">JE suis désolé mais j'ai beau chercher : aucune page ne correspond à cet URL.</p>
+            <p class="center"><a href="{{ path('home') }}">Mon portfolio est ici par contre !</a></p>
+        {% endblock content %}
+    </div>
+{% endblock body_container %}

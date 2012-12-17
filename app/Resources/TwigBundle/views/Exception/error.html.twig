@@ -1,0 +1,27 @@
+{% extends "Tom32iPortfolioBundle::base.html.twig" %}
+
+{% block head_title %}
+    Thomas Jarrand {% block head_sub_title %} | Concepteur Dévelopeur Web{% endblock %}
+{% endblock %}
+
+{% block body_container%}
+
+    <div class="container" id="main" role="main">
+
+        <header id="page-header">
+            <p id="top-title">THOMAS <strong>JARRAND</strong></p>
+            <p id="sub-title">CONCEPTEUR DÉVELOPPEUR WEB</p>
+
+        </header>
+
+        <div class="hr">
+            <i class="icon-invader"></i>
+        </div>
+        
+        {% block content %}
+        	<h1>Hum, il y a comme un problème ...</h1>
+		    <p class="center">Le serveur a retourné l'erreur suivante: "{{ status_code }} {{ status_text }}".</p>
+		    <p class="center">Je vais voir ce qu'il s'est passé et l'erreur sera bientôt corrigée ;)</p>
+        {% endblock content %}
+    </div>
+{% endblock body_container %}
