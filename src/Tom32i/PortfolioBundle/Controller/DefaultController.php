@@ -28,14 +28,14 @@ class DefaultController extends Controller
     		array(
     			'title' => "JS",
     			'color' => 'greenDark',
-    			'content' => "Utiliser jQuery, c’est cool.<br/>Savoir coder en Javascript pur et orienté object : c’est autre chose.",
+    			'content' => "Utiliser jQuery, c’est cool.<br/>Savoir coder en Javascript pur et orienté objet : c’est autre chose.",
     			'two_lines' => false,
     		),
 
     		array(
     			'title' => "HTML5<br/>CSS3",
     			'color' => 'purple',
-    			'content' => "Faire des coins arondis, c’est joli.<br/>S’appuyer sur les nouveaux standard du web pour servir des sites lègers, valides et responsive: c’est encore plus beau.",
+    			'content' => "Faire des coins arrondis, c’est joli.<br/>S’appuyer sur les nouveaux standards du web pour servir des sites légers, valides et responsive: c’est encore plus beau.",
     			'two_lines' => true,
     		),
 
@@ -54,20 +54,20 @@ class DefaultController extends Controller
 
     		array(
     			'title' => "Compter sur les autres.",
-    			'content' => "La qualité d'un projet est le resultat d'une réflexion collective, d'un travail en équipe réunissant des talents divers.
-                Je ne m'isole pas pour développer: je solicite au contraire beaucoup mon équipe et confronte mes idées à leur points de vue. Et ça marche!",
+    			'content' => "La qualité d'un projet est le résultat d'une réflexion collective, d'un travail en équipe réunissant des talents divers.
+                Je ne m'isole pas pour développer: je sollicite au contraire beaucoup mon équipe et confronte mes idées à leur points de vue. Et ça marche !",
     		),
 
     		array(
     			'title' => "Chercher à comprendre.",
-    			'content' => "En tant que developpeur, on peut faire mieux que simplement coder la fonctionalité demandée: 
-                En connaissant le contexte et les véritables besoins des projets sur lesquels je travail, j'oriente mes client vers la solution la plus pertinante.",
+    			'content' => "En tant que développeur, on peut faire mieux que simplement coder la fonctionnalité demandée: 
+                En connaissant le contexte et les véritables besoins des projets sur lesquels je travaille, j'oriente mes client vers la solution la plus pertinente.",
 			),
 
             array(
-                'title' => "Reflechir avant d’agir.",
+                'title' => "Réfléchir avant d’agir.",
                 'content' => "J'accorde de l'importance à la phase de conception d'un projet. 
-                Mon travail de dévelopement commence toujours à l'écris, avec un crayon à papier. 
+                Mon travail de développement commence toujours à l'écris, avec un crayon à papier. 
                 C'est ainsi que je corrige certains problèmes avant même de les avoir codés.",
             ),
 
