@@ -16,7 +16,7 @@
         {% endblock head_meta %}
 
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700' rel='stylesheet' type='text/css'>
-        <link href="/fb_logo.png" rel="image_src" />
+        <link href="{{ asset('fb_logo.png') }}" rel="image_src" />
 
         {% block stylesheets %}
         {% stylesheets '@Tom32iPortfolioBundle/Resources/public/css/main.css'
@@ -44,7 +44,7 @@
         <link rel="apple-touch-startup-image" href="{{ asset('startup.png') }}">
         {% endblock safari_mobile_meta %#}
     </head>
-    <body class="{% block body_class %}{% endblock %}" {% block body_attributes %}{% endblock %}>
+    <body {% block body_attributes %}{% endblock %}>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
