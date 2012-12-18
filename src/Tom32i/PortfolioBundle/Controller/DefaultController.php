@@ -37,7 +37,7 @@ class DefaultController extends Controller
     		array(
     			'title' => "HTML5<br/>CSS3",
     			'color' => 'purple',
-    			'content' => "Faire des coins arrondis, c’est joli.<br/>S’appuyer sur les nouveaux standards du web pour servir des sites légers, valides et responsive: c’est encore plus beau.",
+    			'content' => "Faire des coins arrondis, c’est joli.<br/>S’appuyer sur les nouveaux standards du web pour servir des sites légers, valides et responsive : c’est encore plus beau.",
     			'two_lines' => true,
     		),
 
@@ -57,12 +57,12 @@ class DefaultController extends Controller
     		array(
     			'title' => "Compter sur les autres.",
     			'content' => "La qualité d'un projet est le résultat d'une réflexion collective, d'un travail en équipe réunissant des talents divers.
-                Je ne m'isole pas pour développer: je sollicite au contraire beaucoup mon équipe et confronte mes idées à leur points de vue. Et ça marche !",
+                Je ne m'isole pas pour développer : je sollicite au contraire beaucoup mon équipe et confronte mes idées à leur points de vue. Et ça marche !",
     		),
 
     		array(
     			'title' => "Chercher à comprendre.",
-    			'content' => "En tant que développeur, on peut faire mieux que simplement coder la fonctionnalité demandée: 
+    			'content' => "En tant que développeur, on peut faire mieux que simplement coder la fonctionnalité demandée : 
                 En connaissant le contexte et les véritables besoins des projets sur lesquels je travaille, j'oriente mes client vers la solution la plus pertinente.",
 			),
 
