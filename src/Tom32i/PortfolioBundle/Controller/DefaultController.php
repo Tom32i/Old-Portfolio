@@ -5,6 +5,8 @@ namespace Tom32i\PortfolioBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -107,5 +109,38 @@ class DefaultController extends Controller
         	'tools' => $tools,
             'now' => new \DateTime(),
         );
+    }
+
+    /**
+     * @Route("/cv", name="cv")
+     * @Template()
+     */
+    public function cvAction()
+    {
+        $file = $_SERVER['DOCUMENT_ROOT'] . '/uploads/Thomas_Jarrand_CV_2013.pdf';
+
+        /*$response = new Response(readfile($file), 200);
+
+        $response->headers->set('Content-Type', 'application/pdf');
+        $response->headers->set('Content-Disposition', 'attachment; filename=' . basename($file));
+        $response->headers->set('Content-Length', filesize($file));
+
+        return $response;*/
+
+        if (file_exists($file)) 
+        {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename='.basename($file));
+            header('Content-Transfer-Encoding: binary');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($file));
+            ob_clean();
+            flush();
+            readfile($file);
+            exit;
+        }
     }
 }
