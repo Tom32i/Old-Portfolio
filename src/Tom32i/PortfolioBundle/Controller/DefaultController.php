@@ -69,7 +69,7 @@ class DefaultController extends Controller
             array(
                 'title' => "Réfléchir avant d’agir.",
                 'content' => "J'accorde de l'importance à la phase de conception d'un projet. 
-                Mon travail de développement commence toujours à l'écris, avec un crayon à papier. 
+                Mon travail de développement commence toujours à l'écrit, avec un crayon à papier. 
                 C'est ainsi que je corrige certains problèmes avant même de les avoir codés.",
             ),
 
