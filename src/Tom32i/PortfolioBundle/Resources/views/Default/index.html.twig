@@ -106,39 +106,36 @@
 
 <h1>MES MEILLEURS AMIS</h1>
 
-{% set colums = 2 %}
+{% set colums = 3 %}
 {% set max = tools|length - 1 %}
 
-<div class="row tools">
+<div class="tools">
 
-<div class="span8">
-{% for key, tool in tools %}
+	{% for key, tool in tools %}
 
-	{% if key % colums == 0 %}
-	<div class="row-fluid">
-	{% endif %}
+		{% if key % colums == 0 %}
+		<div class="row-fluid">
+		{% endif %}
 
-		<div class="tool span{{ 12 / colums }}">
-			<a href="{{ tool.url }}" target="_blank" title="{{ tool.title }}">
-				<h2 class="title">
-					<img src="{{ asset(tool.logo)  }}" title="{{ tool.title }}" alt="{{ tool.title }}" width="200" height="60" />
-				</h2>
-			</a>
+			<div class="tool span{{ 12 / colums }}">
+				<a href="{{ tool.url }}" target="_blank" title="{{ tool.title }}">
+					<h2 class="title">
+						<img src="{{ asset(tool.logo)  }}" title="{{ tool.title }}" alt="{{ tool.title }}" width="200" height="60" />
+					</h2>
+				</a>
+			</div>
+
+		{% if key % colums == colums - 1 or key == max %}
 		</div>
+		{% endif %}
 
-	{% if key % colums == colums - 1 %}
+	{% endfor %}
+
+	<div class="">
+		<h3 class="sub-title">Et pourquoi ça ?</h3>
+		<p>Lorsque je choisis de travailler avec un outils, c’est après l'avoir testé, comparé et approuvé.</p>
+		<p>N'hesitez pas à venir en discuter avec moi. Je vous expliquerai ces choix dans le détail ;)</p>
 	</div>
-	{% endif %}
-
-{% endfor %}
-</div>
-
-<div class="span4">
-<h3 class="sub-title">Et pourquoi ça ?</h3>
-<p>Lorsque je choisis de travailler avec un outils, c’est après l'avoir testé, comparé et approuvé.</p>
-<p>N'hesitez pas à venir en discuter avec moi. Je vous expliquerai ces choix dans le détail ;)</p>
-</div>
-
 </div>
 
 {% endblock content %}

@@ -44,7 +44,7 @@ class DefaultController extends Controller
     		array(
     			'title' => "...",
     			'color' => 'red',
-    			'content' => "Et sinon ?<br/>Je travaille aussi avec Ruby on Rails, iOs, Flash et d’autre encore. J’expérimente sans cesse de nouveaux jouets ...",
+    			'content' => "Et sinon ?<br/>Je travaille aussi avec Ruby on Rails, iOs, Facebook API, Drupal et d’autres encore. J’expérimente sans cesse de nouveaux jouets ...",
     			'two_lines' => false,
     		),
 
@@ -77,16 +77,16 @@ class DefaultController extends Controller
 
     	$tools = array( 
 
+            array(
+                'title' => 'Symfony 2', 
+                'url' => 'http://symfony.com/',
+                'logo' => 'bundles/tom32iportfolio/images/symfony.svg', 
+            ),
+
     		array(
     			'title' => 'Git',
                 'url' => 'http://git-scm.com/',
     			'logo' => 'bundles/tom32iportfolio/images/git.svg', 
-    		),
-
-    		array(
-    			'title' => 'Symfony 2', 
-                'url' => 'http://symfony.com/',
-    			'logo' => 'bundles/tom32iportfolio/images/symfony.svg', 
     		),
 
     		array(
@@ -95,11 +95,11 @@ class DefaultController extends Controller
     			'logo' => 'bundles/tom32iportfolio/images/bootstrap.svg', 
     		),
 
-    		array(
+    		/*array(
     			'title' => 'Drupal',
                 'url' => 'http://drupal.org/',
     			'logo' => 'bundles/tom32iportfolio/images/drupal.svg', 
-    		),
+    		),*/
     	);
 
         return array(
