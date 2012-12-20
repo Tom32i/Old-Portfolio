@@ -30,14 +30,14 @@ class DefaultController extends Controller
     		array(
     			'title' => "JS",
     			'color' => 'greenDark',
-    			'content' => "Utiliser jQuery, c’est cool.<br/>Savoir coder en Javascript pur et orienté objet : c’est autre chose.",
+    			'content' => "Utiliser jQuery, c’est cool.<br/>Savoir coder en Javascript pur et utiliser les prototypes objet : c’est autre chose.",
     			'two_lines' => false,
     		),
 
     		array(
     			'title' => "HTML5<br/>CSS3",
     			'color' => 'purple',
-    			'content' => "Faire des coins arrondis, c’est joli.<br/>S’appuyer sur les nouveaux standards du web pour servir des sites légers, valides et responsive : c’est encore plus beau.",
+    			'content' => "Faire des coins arrondis, c’est joli.<br/>S’appuyer sur les nouveaux standards du web pour servir des sites légers, valides et responsives : c’est encore plus beau.",
     			'two_lines' => true,
     		),
 
@@ -50,7 +50,7 @@ class DefaultController extends Controller
 
     	);
 
-		$projects = $em->getRepository('Tom32iPortfolioBundle:Project')->findAll(array('released' => 'DESC'));
+		$projects = $em->getRepository('Tom32iPortfolioBundle:Project')->findAllOrdered();
 
 		$methods = array(
 

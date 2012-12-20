@@ -12,7 +12,7 @@ use Doctrine\Annotations;
  * Project
  *
  * @ORM\Table(name="project")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Tom32i\PortfolioBundle\Entity\ProjectRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Project extends BaseFile
