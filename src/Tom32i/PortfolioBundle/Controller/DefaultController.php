@@ -50,7 +50,7 @@ class DefaultController extends Controller
 
     	);
 
-		$projects = $em->getRepository('Tom32iPortfolioBundle:Project')->findAll();
+		$projects = $em->getRepository('Tom32iPortfolioBundle:Project')->findAll(array('released' => 'DESC'));
 
 		$methods = array(
 
