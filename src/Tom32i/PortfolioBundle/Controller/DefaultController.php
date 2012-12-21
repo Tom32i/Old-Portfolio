@@ -57,13 +57,13 @@ class DefaultController extends Controller
     		array(
     			'title' => "Compter sur les autres.",
     			'content' => "La qualité d'un projet est le résultat d'une réflexion collective, d'un travail en équipe réunissant des talents divers.
-                Je ne m'isole pas pour développer : je sollicite au contraire beaucoup mon équipe et confronte mes idées à leur points de vue. Et ça marche !",
+                Je ne m'isole pas pour développer : je sollicite au contraire beaucoup mon équipe et confronte mes idées à leurs points de vue. Et ça marche !",
     		),
 
     		array(
     			'title' => "Chercher à comprendre.",
     			'content' => "En tant que développeur, on peut faire mieux que simplement coder la fonctionnalité demandée : 
-                En connaissant le contexte et les véritables besoins des projets sur lesquels je travaille, j'oriente mes client vers la solution la plus pertinente.",
+                En connaissant le contexte et les véritables besoins des projets sur lesquels je travaille, j'oriente mes clients vers la solution la plus pertinente.",
 			),
 
             array(
