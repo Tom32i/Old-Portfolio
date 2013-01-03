@@ -201,7 +201,7 @@ function listenKeyboard(e)
 {
 	kkeys.push(e.keyCode);
 
-	if ( true || kkeys.toString().indexOf( k ) >= 0 )
+	if (kkeys.toString().indexOf( k ) >= 0 )
 	{
         window.onkeydown = null;
 
