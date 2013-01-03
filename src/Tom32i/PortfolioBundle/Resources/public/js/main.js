@@ -201,11 +201,15 @@ function listenKeyboard(e)
 {
 	kkeys.push(e.keyCode);
 
-	if ( kkeys.toString().indexOf( k ) >= 0 )
+	if ( true || kkeys.toString().indexOf( k ) >= 0 )
 	{
+        window.onkeydown = null;
+
 		var c = document.createElement('script');
 		c.setAttribute('src', 'http://lab.thomas-jarrand.com/console/console.js');
 		document.body.appendChild(c);
+
+        console.log("added");
 	}
 }
 
