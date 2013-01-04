@@ -360,9 +360,12 @@ FileETag None
 # Rewrite "www.example.com -> example.com".
 
 <IfModule mod_rewrite.c>
+  RewriteCond %{HTTP_HOST} ^(www\.)?tom32i\.fr$ [NC]
+  RewriteRule ^ http://thomas-jarrand.com%{REQUEST_URI} [R=301,L]
+
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  RewriteRule ^ http://thomas-jarrand.com%{REQUEST_URI} [R=301,L]
+  RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
 </IfModule>
 
 # ----------------------------------------------------------------------
