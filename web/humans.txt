@@ -3,13 +3,16 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Thomas Jarrand -- Design & development -- @Tom32i
 
 # THANKS
 
-    <name>
+	Ilinca Jambon -- @Gylarven
+    Cédric Aldagheri -- @Cedleouf73
+    Ugo Retornaz -- @ugoretz
+    Simon Alibert -- @simonalibert
 
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3
-    jQuery, Modernizr
+    Symfony 2
