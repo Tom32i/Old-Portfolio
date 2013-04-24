@@ -44,7 +44,7 @@ class DefaultController extends Controller
     		array(
     			'title' => "...",
     			'color' => 'red',
-    			'content' => "Et sinon ?<br/>Je travaille aussi avec Ruby on Rails, iOs, Facebook API, Drupal et d’autres encore. J’expérimente sans cesse de nouveaux jouets ...",
+    			'content' => "Et sinon ?<br/>Je travaille aussi avec les Websockets, NodeJs, Redis, les Canvas, Ruby on Rails, Facebook API, Drupal et d’autres encore. J’expérimente sans cesse de nouveaux jouets ...",
     			'two_lines' => false,
     		),
 
