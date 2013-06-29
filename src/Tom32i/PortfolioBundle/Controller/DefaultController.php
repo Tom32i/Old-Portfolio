@@ -79,21 +79,39 @@ class DefaultController extends Controller
 
             array(
                 'title' => 'Symfony 2', 
-                'url' => 'http://symfony.com/',
+                'url' => 'http://symfony.com',
                 'logo' => 'bundles/tom32iportfolio/images/symfony.svg', 
             ),
 
     		array(
     			'title' => 'Git',
-                'url' => 'http://git-scm.com/',
+                'url' => 'http://git-scm.com',
     			'logo' => 'bundles/tom32iportfolio/images/git.svg', 
     		),
 
     		array(
-    			'title' => 'Twitter Bootstrap', 
-                'url' => 'http://twitter.github.com/bootstrap/',
-    			'logo' => 'bundles/tom32iportfolio/images/bootstrap.svg', 
+    			'title' => 'Behat', 
+                'url' => 'http://behat.org/',
+    			'logo' => 'bundles/tom32iportfolio/images/behat.svg', 
     		),
+
+            array(
+                'title' => 'HTML5', 
+                'url' => 'http://www.w3.org/TR/html5',
+                'logo' => 'bundles/tom32iportfolio/images/html5.svg', 
+            ),
+
+            array(
+                'title' => 'Node.js', 
+                'url' => 'http://nodejs.org/',
+                'logo' => 'bundles/tom32iportfolio/images/nodejs.svg', 
+            ),
+
+            array(
+                'title' => 'Twitter Bootstrap', 
+                'url' => 'http://twitter.github.io/bootstrap',
+                'logo' => 'bundles/tom32iportfolio/images/bootstrap.svg', 
+            ),
 
     		/*array(
     			'title' => 'Drupal',
